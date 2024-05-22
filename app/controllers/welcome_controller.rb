@@ -7,8 +7,13 @@ class WelcomeController < ApplicationController
 
   def search
     @keyword = params[:keyword]
-    
+
+    query = WebPage.where('note LIKE ?',"%#{@keyword}%")
+
     # @pages = WebPage.all
-    @pages = WebPage.where('note LIKE ?',"%#{@keyword}%")
+    @pages = query.page(params[:page]).per(4)
+
+    @total = query.count
+
   end 
 end

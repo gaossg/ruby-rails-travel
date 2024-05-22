@@ -50,9 +50,9 @@
   class="search-results"
   style="padding-left: 125px; padding-top: 20px; width: 50%"
 >
-  <p style="font-size: 11px; color: #999">搜狗已为您找到约111条相关结果</p>
+  <p style="font-size: 11px; color: #999">搜狗已为您找到约<%= @total %>条相关结果</p>
 
-  <!-- 重复10次 -->
+  <!-- 重复10次  使用controller中的pages变量 -->
   <% @pages.each do |page| %>
   <div class="item">
     <div><%= link_to "#{@keyword} - #{page.title}", "#" %></div>
@@ -69,6 +69,8 @@
     </div>
   </div>
   <% end %>
+
+  <%= paginate @pages %>
 </div>
-<h1><%= @keyword %></h1>
+
 
