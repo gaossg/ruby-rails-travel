@@ -1,0 +1,53 @@
+.nav-link.active{
+  color: #FF5A34 !important; 
+}
+
+.home-container{
+  width: 200px;
+
+}
+
+.home-header-right-menu{
+  color: #999;
+  justify-content: center;
+  align-items: center;
+  div{
+    margin-right: 15px;
+    font-size:12px ;
+  }
+}
+
+
+.btn{
+  --bs-btn-padding-y: .2rem;
+  --bs-btn-padding-x: .4rem; 
+  --bs-btn-font-size: .75rem;
+}
+.home-container{
+  width: 50%;
+  margin: 0 auto ;
+  text-align: center;
+}
+
+.search-options {
+  color: #666;
+
+  div {
+    font-size: 12px;
+    margin-right: 30px;
+    padding-bottom: 7px;
+
+  }
+
+  .active {
+    border-bottom: 2px solid orange;
+  }
+}
+
+.search-results{
+  font-size: 13px;
+
+  .item{
+    margin-bottom: 20px;
+  }
+}

@@ -1,1 +1,68 @@
-<h1 style="text-align:center;color:green;margin-top:20px">hello world!</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>旅游网站</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <%= csrf_meta_tags %>     <%= csp_meta_tag %>         <%=
+    stylesheet_link_tag "application", "data-turbo-track": "reload" %>     <%=
+    javascript_importmap_tags %>  
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">首页</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/history"
+                >历史订单</a
+              >
+            </li>
+            <% ['新订单','COST套餐','campain'].each do |name| %>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#"><%= name %></a>
+            </li>
+            <% end %>
+          </ul>
+          <div class="d-flex home-header-right-menu">
+            <div>无障碍</div>
+            <div>|</div>
+            <div>
+              <button class="btn btn-danger">登录</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="home-container">
+      <div><%= image_tag 'logo.png', width:440,height:100 %></div>
+      <%= form_with url:search_path,method: :get,data: {remote:false} do %>
+      <div class="input-group mb-3 mt-3">
+        <input
+          name="keyword"
+          type="text"
+          class="form-control"
+          placeholder="请输入搜索关键词"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <button class="input-group-text" id="basic-addon2">搜索</button>
+      </div>
+      <% end %>
+    </div>
+  </body>
+</html>
